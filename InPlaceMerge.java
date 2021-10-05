@@ -28,9 +28,9 @@ public class InPlaceMerge implements Sort{
    * @return Long, amount of milliseconds that merge sort took
    */
   private void mergeSort(double array[], int left, int right){
-    if (left < right) {
+    if (left < right) {//pointers have not intersect; continue merge
 
-      int mid = left + (right - left) /2;
+      int mid = left + (right-left) / 2;
 
       mergeSort(array, left, mid);
       mergeSort(array, mid + 1, right);
@@ -80,13 +80,13 @@ public class InPlaceMerge implements Sort{
   }
 
   public static void main(String[] args){
-    // MergeSort ms = new MergeSort();
+    // InPlaceMerge ms = new InPlaceMerge();
     // int arraySize = 1000000;
     // double[] arrayToSort = new double[arraySize];
     // for(int i = 0; i < arraySize; i++){
     //   arrayToSort[i] = (double)(Math.random() * 500000);
     // }
-    // System.out.println("merge sort of " + arraySize + " took : " + ms.sort(arrayToSort) + " milliseconds");
+    // System.out.println("in-place merge sort of " + arraySize + " took : " + ms.sort(arrayToSort) + " milliseconds");
     //System.out.println(Arrays.toString(arrayToSort));
   }
 }
