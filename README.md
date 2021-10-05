@@ -6,3 +6,5 @@ By uncommenting the main method in Sort.java, the runtime result of the six sort
 
 To run Sort.java:
   ```java Sort <desired-array-length>```
+
+Navigate to the Issues tab to read more about the time complexities of these sorting algorithms.
