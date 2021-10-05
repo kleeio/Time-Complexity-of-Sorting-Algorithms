@@ -29,12 +29,9 @@ public class InPlaceMerge implements Sort{
    */
   private void mergeSort(double array[], int left, int right){
     if (left < right) {//pointers have not intersect; continue merge
-
       int mid = left + (right-left) / 2;
-
       mergeSort(array, left, mid);
       mergeSort(array, mid + 1, right);
-
       merge(array, left, mid, right);
     }
   }
@@ -47,19 +44,15 @@ public class InPlaceMerge implements Sort{
     if (array[mid] <= array[midHigh]){//already sorted
       return;
     }
-    // low to mid is the first array, midHigh to high is the second;when they cross, merge is done
+    // low to mid is the first array, midHigh to high is the second; when they cross, merge is done
     while(low <= mid && midHigh <= high){
-      if(array[low] <= array[midHigh]){//first array is lower and element is at the right index
-        low++;
-      }
-      else {//insert element at midHigh to index low and shift all elements back; index stores the start of second array
+      if(array[low] <= array[midHigh]) low++; //first array is lower and element is at the right index
+      else{ //insert element at midHigh to index low and shift all elements back; index stores the start of second array
         double temp = array[midHigh];
         int index = midHigh;
 
-        while (index != low) {
-          array[index] = array[index-1];
-          index--;
-        }
+        while(index != low) array[index--] = array[index-1];
+
         array[low++] = temp;
         mid++;
         midHigh++;
