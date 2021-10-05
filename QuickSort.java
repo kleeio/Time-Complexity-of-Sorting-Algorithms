@@ -36,12 +36,14 @@ public class QuickSort implements Sort{
 
   private int Partition(double[] array, int left, int right) {
     double pivot = array[left];
-    while(left < right) {
-      while (left < right && array[right] >= pivot) right--;
+
+    while(left < right) {//left pointer and right pointer has not intersected; more elements to eval
+      while (left < right && array[right] >= pivot) right--; //assert that left is still less than right to keep within bounds; element to pivot right is larger
       Swap(array, left, right);
       while (left < right && array[left] <= pivot) left++;
       Swap(array, right, left);
     }
+
     array[left] = pivot;
     return left;
   }
@@ -68,13 +70,13 @@ public class QuickSort implements Sort{
   }
 
   public static void main(String[] args){
-    // QuickSort ss = new QuickSort();
-    // int arraySize = 900000;
-    // double[] arrayToSort = new double[arraySize];
-    // for(int i = 0; i < arraySize; i++){
-    //   arrayToSort[i] = (double)(Math.random() * 50000);
-    // }
-    // System.out.println("quick sort of "+ arrayToSort.length + " took " + ss.sort(arrayToSort) + " milliseconds");
+    QuickSort ss = new QuickSort();
+    int arraySize = 900000;
+    double[] arrayToSort = new double[arraySize];
+    for(int i = 0; i < arraySize; i++){
+      arrayToSort[i] = (double)(Math.random() * 50000);
+    }
+    System.out.println("quick sort of "+ arrayToSort.length + " took " + ss.sort(arrayToSort) + " milliseconds");
     //System.out.println(Arrays.toString(arrayToSort));
   }
 }
